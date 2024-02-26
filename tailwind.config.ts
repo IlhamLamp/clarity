@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        
+        primary: "#625DF5",
+        canvas: "#F9FAFB",
+        black: "#15171A",
       }
     },
   },

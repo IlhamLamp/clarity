@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children} : Readonly<{
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
+        <Header />
         <main className="max-w-6xl mx-auto p-4">
           {children}
         </main>
