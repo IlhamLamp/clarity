@@ -32,4 +32,9 @@ export const navItems = [
             { href: '#', label: 'Blog Details Four' },
         ]
     },
+    {
+        href: '#',
+        label: 'Support',
+        sub:[]
+    }
 ]
