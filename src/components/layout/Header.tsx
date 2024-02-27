@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
-import { FaDiscord, FaFacebookF, FaTwitter, FaLinkedinIn, FaPinterest } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
 import { ChevronDown } from "../icons/Chevron";
 import Search from "../icons/Search";
 import HeaderDropdown from "../cards/HeaderDropdown";
 import { navItems } from "@/data/data";
+import SubscribeButton from "../buttons/SubscribeButton";
+import Social from "../icons/Social";
 
 export default function Header() {
 
@@ -34,19 +36,12 @@ export default function Header() {
                 </nav>
                 {/* SOC-ICON */}
                 <nav className="flex items-center gap-10">
-                    <div className="flex items-center gap-2 text-gray-500">
-                        <Link href={'#'} className="social-hover"><FaFacebookF /></Link>
-                        <Link href={'#'} className="social-hover"><FaTwitter /></Link>
-                        <Link href={'#'} className="social-hover"><FaLinkedinIn /></Link>
-                        <Link href={'#'} className="social-hover"><FaPinterest /></Link>
-                    </div>
                     <div className="flex items-center gap-5">
+                        <Social />
                         <span className="bg-canvas/50 text-gray-500 search-hover cursor-pointer">
                             <Search />
                         </span>
-                        <button className="button">
-                            Subscribe
-                        </button>
+                        <SubscribeButton />
                     </div>
                 </nav>
             </div>
