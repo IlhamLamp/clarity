@@ -9,7 +9,7 @@ export default function BlogSingle() {
             <div className="max-w-[1030px] px-4 lg:px-0 mx-auto">
                 {/* HEADER CONTENT */}
                 <div className="max-w[770px] pt-10 mx-auto text-center">
-                    <CategoryButton textColor={"text-primary"} bgColor={"bg-blue-50"} href={"#"} categoryName={"Technology"} />
+                    <CategoryButton textColor={"text-primary"} bgColor={"bg-blue-50"} href={"/category"} categoryName={"Technology"} />
                     <h1 className="max-w-2xl mx-auto lg:mt-1 mb-5 lg:leading-normal font-bold text-2xl lg:text-4xl text-black">
                         Start here for a quick overview of everything you need to know
                     </h1>

@@ -11,7 +11,7 @@ export const navItems = [
         href: '#',
         label: 'Pages',
         sub:[
-            { href: '#', label: 'Category Page' },
+            { href: '/category', label: 'Category Page' },
             { href: '#', label: 'About Us' },
             { href: '#', label: 'Author Page' },
             { href: '#', label: 'Search Page' },
@@ -37,4 +37,46 @@ export const navItems = [
         label: 'Support',
         sub:[]
     }
+]
+
+export const ctgItems = [
+    {
+        href: '/blog-single',
+        images: 'https://clarity-tailwind.preview.uideck.com/images/blog-01.png',
+        title: 'Stylish Kitchen And Dining Room With Functional Ideas',
+        description: 'Lorem Ipsum is simply dummy text of the print and typesetting industry...',
+        author: {
+            name: 'Adrio Devid',
+            image: 'https://clarity-tailwind.preview.uideck.com/images/user-01.png',
+            href: '#',
+        },
+        date: 'Sep 10, 2025',
+        category: 'Technology'
+    },
+    {
+        href: '/blog-single-2',
+        images: 'https://clarity-tailwind.preview.uideck.com/images/blog-02.png',
+        title: 'Stylish Kitchen And Dining Room With Functional Ideas',
+        description: 'Lorem Ipsum is simply dummy text of the print and typesetting industry...',
+        author: {
+            name: 'Adrio Devid',
+            image: 'https://clarity-tailwind.preview.uideck.com/images/user-01.png',
+            href: '#',
+        },
+        date: 'Sep 10, 2025',
+        category: 'Technology'
+    },
+    {
+        href: '/blog-single-3',
+        images: 'https://clarity-tailwind.preview.uideck.com/images/blog-03.png',
+        title: 'Stylish Kitchen And Dining Room With Functional Ideas',
+        description: 'Lorem Ipsum is simply dummy text of the print and typesetting industry...',
+        author: {
+            name: 'Adrio Devid',
+            image: 'https://clarity-tailwind.preview.uideck.com/images/user-01.png',
+            href: '#',
+        },
+        date: 'Sep 10, 2025',
+        category: 'Technology'
+    },
 ]

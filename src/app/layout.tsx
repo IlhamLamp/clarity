@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Newsletter from "@/components/layout/Newsletter";
+import ScrollToTopButton from "@/components/buttons/ScrollToTopButton";
 
 const inter = Inter({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -22,9 +23,9 @@ export default function RootLayout({ children} : Readonly<{
         <main>
           {children}
           <Newsletter />
-          {/* <ScrollToTopButton /> */}
         </main>
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

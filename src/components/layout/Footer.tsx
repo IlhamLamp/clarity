@@ -17,7 +17,7 @@ export default function Footer() {
                         <ul className="flex flex-wrap items-center gap-2">
                             <li>
                                 <Link href={'#'} className="group leading-none flex text-sm ease-in duration-200 hover:text-black">
-                                    <span className="">Privacy</span>
+                                    <span className="">Kamisato</span>
                                 </Link>
                             </li>
                             <li>
@@ -25,7 +25,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href={'#'} className="group leading-none flex text-sm ease-in duration-200 hover:text-black">
-                                    <span className="">Privacy</span>
+                                    <span className="">Ayaka</span>
                                 </Link>
                             </li>
                             <li>
