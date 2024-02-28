@@ -17,3 +17,15 @@
   @apply rounded-full p-2.5 transition ease-in delay-100;
   @apply hover:text-black hover:bg-canvas;
 }
+
+/* BLOGS */
+
+  /* FONT */
+  .text-body {
+    @apply opacity-100 text-gray-800;
+  }
+
+  /* AUTHOR */
+  .shadow-img {
+    @apply shadow-xl drop-shadow-xl;
+  }

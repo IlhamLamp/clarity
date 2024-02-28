@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Newsletter from "@/components/layout/Newsletter";
 
 const inter = Inter({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -17,9 +19,12 @@ export default function RootLayout({ children} : Readonly<{
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <Header />
-        <main className="">
+        <main>
           {children}
+          <Newsletter />
+          {/* <ScrollToTopButton /> */}
         </main>
+        <Footer />
       </body>
     </html>
   );

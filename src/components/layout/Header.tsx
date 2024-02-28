@@ -18,12 +18,10 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.innerWidth <= 768) {
-                if (window.scrollY > 0) {
-                    setIsScrolled(true);
-                } else {
-                    setIsScrolled(false);
-                }
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
             }
         };
         window.addEventListener("scroll", handleScroll);
@@ -39,9 +37,8 @@ export default function Header() {
     return (
         <header 
             className={
-                `fixed left-0 top-0 z-9999
-                py-7 w-screen h-[80px] lg:py-0 bg-white shadow-md transition-all ease-in-out duration-300
-                ${ isMenuOpen ? "h-[calc(50vh-80px)] shadow-md" : "" }
+                `fixed left-0 top-0 z-50 w-screen bg-white transition-all ease-in-out duration-300
+                ${isScrolled ? 'py-1 shadow-md': 'py-5'} ${ isMenuOpen ? "h-[calc(50vh)]" : "" }
                 `
             }
         >
@@ -55,7 +52,7 @@ export default function Header() {
                     </Link>
                     {/* MOBILE-MENU */}
                     <div className="md:hidden">
-                        <button  onClick={toggleMenu}>
+                        <button onClick={toggleMenu} className="my-1 items-center">
                             { isMenuOpen ? <Close /> : <HamburgerMenu /> }
                         </button>
                     </div>
@@ -87,9 +84,11 @@ export default function Header() {
                         </ul>
                     </nav>
                     {/* SOC-ICON */}
-                    <div className="flex items-center gap-10">
-                        <div className="flex items-center gap-5">
+                    <div className="flex flex-wrap items-center px-2 lg:px-0 mt-7 lg:mt-0 gap-10">
+                        <div>
                             <Social />
+                        </div>
+                        <div className="flex items-center gap-3">
                             <span className="bg-canvas/50 text-gray-500 search-hover cursor-pointer">
                                 <Search />
                             </span>
