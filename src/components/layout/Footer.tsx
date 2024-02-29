@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Social from "../icons/Social";
+import { Social } from "../icons/Social";
 
 export default function Footer() {
 

@@ -6,7 +6,7 @@ import Search from "../icons/Search";
 import HeaderDropdown from "../cards/HeaderDropdown";
 import { navItems } from "@/data/data";
 import SubscribeButton from "../buttons/SubscribeButton";
-import Social from "../icons/Social";
+import { Social } from "../icons/Social";
 import HamburgerMenu from "../icons/HamburgerMenu";
 import { useEffect, useState } from "react";
 import Close from "../icons/Close";

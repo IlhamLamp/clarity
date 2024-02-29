@@ -16,7 +16,7 @@ interface CtgButtonProps {
 
 const CategoryFilter: React.FC<CtgFilterProps> = ({textColor, bgColor, href, categoryName}) => {
     return (
-        <div className={`${bgColor} inline-flex font-medium text-sm py-1 px-3 rounded-full mb-1`}>
+        <div className={`${bgColor} inline-flex font-medium text-sm py-1 px-3 rounded-full`}>
             <Link href={href} className={textColor}>
                 {categoryName}
             </Link>

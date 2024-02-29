@@ -38,3 +38,7 @@
 .ctgInactive {
   @apply bg-gray-200 border-gray-200 text-black;
 }
+
+.dots {
+  @apply flex w-[3px] h-[3px] rounded-full bg-gray-300;
+}

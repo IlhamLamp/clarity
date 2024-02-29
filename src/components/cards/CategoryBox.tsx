@@ -29,14 +29,14 @@ const CategoryBox: React.FC<ArticleItems> = (
             </h4>
             <p className="text-gray-500">{description}</p>
             <div className="flex flex-wrap gap-3 items-center justify-between mt-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-gray-500">
                     <Link href={author.href} className="flex items-center gap-3 to-gray-500">
                         <div className="flex w-6 h-6 rounded-full overflow-hidden">
                             <Image src={`${author.image}`} alt="author" width={24} height={24} />
                         </div>
                         <p className="text-sm">{author.name}</p>
                     </Link>
-                    <span className="flex w-[3px] h-[3px] rounded-full"></span>
+                    <span className="dots" />
                     <p className="text-sm">{date}</p>
                 </div>
                 <CategoryFilter

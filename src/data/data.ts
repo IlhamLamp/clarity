@@ -28,7 +28,7 @@ export const navItems = [
         sub:[
             { href: '/blog-single', label: 'Blog Details One' },
             { href: '#', label: 'Blog Details Two' },
-            { href: '#', label: 'Blog Details Three' },
+            { href: '/blog-three', label: 'Blog Details Three' },
             { href: '#', label: 'Blog Details Four' },
         ]
     },
