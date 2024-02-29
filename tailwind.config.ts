@@ -12,6 +12,7 @@ const config: Config = {
         primary: "#625DF5",
         canvas: "#F9FAFB",
         black: "#15171A",
+        pink: "#FFB5DA"
       }
     },
   },

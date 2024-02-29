@@ -29,3 +29,12 @@
   .shadow-img {
     @apply shadow-xl drop-shadow-xl;
   }
+
+/* BUTTONS */
+.ctgActive {
+  @apply bg-black border-black text-white;
+}
+
+.ctgInactive {
+  @apply bg-gray-200 border-gray-200 text-black;
+}
