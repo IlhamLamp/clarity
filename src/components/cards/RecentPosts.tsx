@@ -41,7 +41,7 @@ const RecentPosts: React.FC = () => {
                             <h5 className="font-medium text-sm text-body duration-200 ease-in mb-1.5 group-hover:text-primary">
                                 {item.title}
                             </h5>
-                            <div className="flex items-center gap-2 text-gray-300">
+                            <div className="flex items-center gap-2 text-gray-500">
                                 <p className="text-xs">{item.author}</p>
                                 <span className="dots" />
                                 <p className="text-xs">{item.date}</p>

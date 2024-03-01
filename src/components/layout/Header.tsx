@@ -15,6 +15,7 @@ export default function Header() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isDropClicked, setIsDropClicked] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,11 +35,15 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen);
     }
 
+    const handleDropdown = () => {
+        setIsDropClicked(!isDropClicked)
+    }
+
     return (
         <header 
             className={
                 `fixed left-0 top-0 z-50 w-screen bg-white transition-all ease-in-out duration-300
-                ${isScrolled ? 'py-1 shadow-md': 'py-5'} ${ isMenuOpen ? "h-[calc(50vh)]" : "" }
+                ${isScrolled ? 'py-2 lg:py-1 shadow-md': 'py-5'} ${ isMenuOpen ? "h-[calc(50vh)]" : "" }
                 `
             }
         >
@@ -74,11 +79,17 @@ export default function Header() {
                                         className="hover:text-black flex items-center justify-between gap-3"
                                     >
                                         <span>{item.label}</span>
-                                        <span>{item.sub.length > 0 ? <ChevronDown /> : null}</span>
+                                        <span>
+                                            { item.sub.length > 0 && isMenuOpen
+                                                ? <button type="button" onClick={handleDropdown} className="items-center my-2">
+                                                    <ChevronDown /></button>
+                                                : <ChevronDown />
+                                            }
+                                        </span>
                                     </Link>
                                     <div className="group-hover:block absolute hidden h-auto">
-                                        <HeaderDropdown items={item.sub} /> 
-                                    </div>
+                                            <HeaderDropdown items={item.sub} /> 
+                                        </div>
                                 </li>
                             ))}  
                         </ul>
