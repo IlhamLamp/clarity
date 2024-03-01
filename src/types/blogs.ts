@@ -1,3 +1,14 @@
+interface subNavItems {
+    href: string;
+    label: string;
+}
+
+interface NavItems {
+    href: string;
+    label: string;
+    sub: subNavItems[];
+}
+
 interface Categories {
     id: number;
     name: string;
@@ -21,4 +32,4 @@ interface ArticleItems {
     };
 }
 
-export type { ArticleItems, Categories };
+export type { ArticleItems, Categories, NavItems };

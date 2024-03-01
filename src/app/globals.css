@@ -3,9 +3,25 @@
 @tailwind utilities;
 
 /* NAVBAR */
+.navigationOpen {
+  @apply !visible bg-white shadow-lg relative !h-auto max-h-[400px] overflow-y-scroll rounded-md mt-4 p-7;
+}
+
+.dropdown {
+  @apply hidden rounded-md transition ease-in delay-100 ;
+}
+
+.group:hover, .dropdown {
+  @apply visible;
+}
+
 .dropdown-position {
-  @apply absolute z-10 top-0 left-0 transform translate-x-1 w-[200px];
+  @apply absolute z-10 top-0 left-0 transform translate-x-1 w-[300px];
   @apply rounded-md transition ease-in delay-100 ;
+}
+
+.activePath {
+  @apply bg-canvas text-primary;
 }
 
 .social-hover {

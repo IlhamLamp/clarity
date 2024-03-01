@@ -10,12 +10,15 @@ import { Social } from "../icons/Social";
 import HamburgerMenu from "../icons/HamburgerMenu";
 import { useEffect, useState } from "react";
 import Close from "../icons/Close";
+import { usePathname } from "next/navigation";
+import { NavItems } from "@/types/blogs";
 
 export default function Header() {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isDropClicked, setIsDropClicked] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [isActiveDropdown, setIsActiveDropdown] = useState<number|null>(null);
+    const path = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,8 +38,8 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen);
     }
 
-    const handleDropdown = () => {
-        setIsDropClicked(!isDropClicked)
+    const handleDropdown = (index: number) => {
+        setIsActiveDropdown(isActiveDropdown === index ? null : index);
     }
 
     return (
@@ -64,32 +67,37 @@ export default function Header() {
                 </div>
                 {/* MENU */}
                 <div 
-                    className={
-                        `w-full lg:w-9/12 h-0 lg:h-auto 
-                        ${ isMenuOpen ? "block" : "invisible" } 
-                        lg:visible lg:flex items-center justify-between mx-auto px-4 sm:px-8 xl:px-0`
-                    }
+                    className={`
+                        w-full lg:w-9/12 lg:h-auto lg:visible lg:flex items-center justify-between mt-4 p-7 lg:m-0 lg:p-0
+                        bg-white relative max-h-[400px] overflow-y-scroll lg:overflow-y-hidden rounded-md 
+                        ${ isMenuOpen ? 'block' : 'hidden'} 
+                    `}
                 >
                     <nav>
-                        <ul className="flex lg:items-center flex-col lg:flex-row gap-5 lg:gap-10 p-3 m-1 lg:p-0">
-                            {navItems.map((item: any) => (
-                                <li key={item.label} className="group relative lg:py-6.5">
+                        <ul className="flex lg:items-center flex-col lg:flex-row gap-5 lg:gap-10">
+                            { navItems.map((item: NavItems, index: number) => (
+                                <li key={item.label} className="group relative lg:py-2">
                                     <Link 
                                         href={item.href}
-                                        className="hover:text-black flex items-center justify-between gap-3"
+                                        onClick={() => handleDropdown(index)}
+                                        className={`
+                                            hover:text-black hover:ease-in-out flex items-center justify-between gap-3
+                                            ${path === item.href ? 'text-black' : 'text-gray-600 '}
+                                        `}
                                     >
                                         <span>{item.label}</span>
-                                        <span>
-                                            { item.sub.length > 0 && isMenuOpen
-                                                ? <button type="button" onClick={handleDropdown} className="items-center my-2">
-                                                    <ChevronDown /></button>
-                                                : <ChevronDown />
-                                            }
-                                        </span>
+                                        {/* ChevronDownIcon */}
+                                        { item.label !== 'Support' &&
+                                            <span>
+                                                { item.sub?.length > 0 && (
+                                                    <ChevronDown />
+                                                )}
+                                            </span>
+                                        }
                                     </Link>
-                                    <div className="group-hover:block absolute hidden h-auto">
-                                            <HeaderDropdown items={item.sub} /> 
-                                        </div>
+                                    { isActiveDropdown === index && item.sub?.length > 0 &&
+                                        <HeaderDropdown items={item.sub} />
+                                    }
                                 </li>
                             ))}  
                         </ul>
