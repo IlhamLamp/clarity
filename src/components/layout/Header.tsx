@@ -12,13 +12,29 @@ import { useEffect, useState } from "react";
 import Close from "../icons/Close";
 import { usePathname } from "next/navigation";
 import { NavItems } from "@/types/blogs";
+import { useWindowWidth } from "@react-hook/window-size";
 
 export default function Header() {
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [screenSize, setScreenSize] = useState<boolean>(false);
     const [isActiveDropdown, setIsActiveDropdown] = useState<number|null>(null);
+    const width = useWindowWidth();
     const path = usePathname();
+
+    useEffect(() => {
+        const screen = () => {
+            // LAPTOP SIZE
+            console.log(width);
+            if (width > 1024) {
+                setScreenSize(true);
+            } else {
+                setScreenSize(false);
+            }
+        }
+        return screen;
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,11 +60,10 @@ export default function Header() {
 
     return (
         <header 
-            className={
-                `fixed left-0 top-0 z-50 w-screen bg-white transition-all ease-in-out duration-300
+            className={`
+                fixed left-0 top-0 z-50 w-screen bg-white transition-all ease-in-out duration-300
                 ${isScrolled ? 'py-2 lg:py-1 shadow-md': 'py-5'} ${ isMenuOpen ? "h-[calc(50vh)]" : "" }
-                `
-            }
+            `}
         >
             {/* CONTAINER */}
             <div className="max-w-[1170px] w-full h-full mx-auto px-4 sm:px-8 xl:px-0 lg:flex items-center justify-between relative">
@@ -67,11 +82,15 @@ export default function Header() {
                 </div>
                 {/* MENU */}
                 <div 
-                    className={`
-                        w-full lg:w-9/12 lg:h-auto lg:visible lg:flex items-center justify-between mt-4 p-7 lg:m-0 lg:p-0
-                        bg-white relative max-h-[400px] overflow-y-scroll lg:overflow-y-hidden rounded-md 
-                        ${ isMenuOpen ? 'block' : 'hidden'} 
-                    `}
+                    className={ screenSize
+                        ?   `w-full lg:w-9/12 h-0 lg:h-auto 
+                        lg:visible lg:flex items-center justify-between mx-auto px-4 sm:px-8 xl:px-0
+                        ${ isMenuOpen ? "block" : "invisible" }`
+                        
+                        : `w-full lg:w-9/12 lg:h-auto lg:visible lg:flex items-center justify-between mt-4 p-7 lg:m-0 lg:p-0
+                         bg-white relative max-h-[400px] overflow-y-scroll lg:overflow-y-hidden rounded-md 
+                        ${ isMenuOpen ? 'block' : 'hidden'} `
+                    }     
                 >
                     <nav>
                         <ul className="flex lg:items-center flex-col lg:flex-row gap-5 lg:gap-10">
@@ -95,8 +114,11 @@ export default function Header() {
                                             </span>
                                         }
                                     </Link>
-                                    { isActiveDropdown === index && item.sub?.length > 0 &&
-                                        <HeaderDropdown items={item.sub} />
+                                    { screenSize && item.sub?.length > 0 
+                                        ? <div className="group-hover:block absolute hidden h-auto">
+                                            <HeaderDropdown items={item.sub} /> 
+                                        </div>
+                                        : isActiveDropdown === index && <HeaderDropdown items={item.sub} /> 
                                     }
                                 </li>
                             ))}  
